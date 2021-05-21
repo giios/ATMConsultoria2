@@ -10,6 +10,9 @@ import android.view.ViewGroup;
 
 import com.example.atmconsultoria.R;
 
+import mehdi.sakout.aboutpage.AboutPage;
+import mehdi.sakout.aboutpage.Element;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link SobreFragment#newInstance} factory method to
@@ -60,7 +63,36 @@ public class SobreFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        String descricao = "A ATM Consultoria tem como missão apoiar organizações" +
+                "que desejam alcançar o sucesso através da excelência em gestão e" +
+                "da bisca pela qualidade.";
+
+        String facebook = "giovane.santana";
+
+        Element versao = new Element();
+        versao.setTitle("Versão 1.0");
+
+        return new AboutPage(getActivity())
+                .setImage(R.drawable.logo)
+                .setDescription(descricao)
+
+
+
+                .addGroup("Redes Sociais")
+                .addInstagram("_giusantana")
+                .addFacebook(facebook, "Facebook")
+                .addTwitter("_giusao")
+                .addGitHub("giios", "Git for Giios")
+
+                .addGroup("Entre em contato")
+                .addEmail("giio.santana@gmail.com", "Envie um e-mail")
+                .addWebsite("google.com.br", "Acesse nosso site")
+
+                .addItem(versao)
+
+                .create();
+
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sobre, container, false);
     }
 }
